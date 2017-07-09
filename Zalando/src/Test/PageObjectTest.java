@@ -21,7 +21,7 @@ public class PageObjectTest {
 	public static void setup() {
 		//ClassLoader.getSystemResource("chromedriver.exe");
 		//System.setProperties();
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		

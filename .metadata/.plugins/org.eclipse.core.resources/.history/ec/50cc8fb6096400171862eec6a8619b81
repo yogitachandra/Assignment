@@ -1,0 +1,145 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Rollback Sheet" parallel="methods"
+	configfailurepolicy="continue" thread-count="5">
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
+	<parameter name="AE" value="AE10LLV (AE10LLV)" />
+	<parameter name="hub" value="ecc" />
+
+	<test name="JOBF_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBF" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetFunctionalityTest" />
+					<include name="rollbackSheetLabelAssertionTest" />
+					<include name="expandCollapseTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="JOBF_GermanLabelAssertion_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="object" value="JOBF" />
+		<parameter name="language" value="Deutsch" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetLabelAssertionTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="JOBS_WIN_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBS_WIN" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetFunctionalityTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="JOBS_UNIX_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBS_UNIX" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetFunctionalityTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="JOBG_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBG" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="JOBQ_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBQ_R3_ALL_JOBS" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="SCRIPT_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="SCRI" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="JOBP_Standard_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="JOBP_STANDARD" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="EVENT_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="EVNT_CONS" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="CALL_Testing">
+		<parameter name="browser" value="chrome" />
+		<parameter name="language" value="English" />
+		<parameter name="object" value="CALL" />
+		<classes>
+			<class name="com.automic.ecc.functionaltests.RollbackSheet">
+				<methods>
+					<include name="rollbackSheetTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>
