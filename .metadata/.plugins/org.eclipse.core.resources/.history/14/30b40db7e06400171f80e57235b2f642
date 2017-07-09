@@ -1,0 +1,9 @@
+package com.utils;
+
+public class AppWebDriver {
+
+	private String WebDriver Driver;
+	private String WebDriver Driver;
+	private String WebDriver Driver;
+	
+}

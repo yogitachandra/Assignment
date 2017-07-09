@@ -1,0 +1,30 @@
+package com.utils;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class DriverFactory {
+
+	public static AppWebDriver getDriver(String driverType) {
+
+		AppWebDriver appWebDriver = null;
+		switch (driverType) {
+		case "chrome":
+			appWebDriver = new AppWebDriver(new ChromeDriver(), Constants.DRIVER_CHROME_PROPERTY, Constants.DRIVER_CHROME_PATH_WINDOWS_32);
+			break;
+		case "firefox":
+			appWebDriver = new AppWebDriver(new FirefoxDriver(), Constants.DRIVER_FIREFOX_PROPERTY, Constants.DRIVER_FIREFOX_PATH_WINDOWS32);
+			break;
+		case "iexplorer":
+			appWebDriver = new AppWebDriver(new ChromeDriver(), Constants.DRIVER_CHROME_PROPERTY, Constants.DRIVER_CHROME_PATH_WINDOWS_32);
+			break;
+		default:
+			driver = new FirefoxDriver();
+			break;
+		}
+
+		return driver;
+	}
+}

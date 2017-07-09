@@ -1,0 +1,93 @@
+package com.test;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import com.pageObjects.ZLabelsPage;
+import com.pageObjects.ZalandoPage;
+import com.utils.Constants;
+import com.utils.DriverFactory;
+
+@Test
+public class PageTest {
+
+	private static WebDriver driver;
+
+	@BeforeTest
+	public static void setup() {
+
+		// FIXME: pick this up from config file
+		driver = DriverFactory.getDriver(Constants.DRIVER_CHROME);
+		driver.manage().timeouts().implicitlyWait(Constants.TIME, TimeUnit.SECONDS);
+	}
+
+	@Test
+	public static void zLabelsTest() {
+		String baseUrl = Constants.BASEURL_ZALABEL;
+		driver.get(baseUrl);
+		ZLabelsPage page = new ZLabelsPage(driver);
+
+		page.clickOnJobsLink();
+		page.inputJobType("Fuﬂ Fitting Model");
+		page.locationDropdown("Berlin");
+		page.clickSearchButton();
+		page.clickFilterJobsButton();
+		page.selectJobCategory();
+
+		// asserting details for the first matching result
+		Assert.assertTrue(page.getJobTitle().matches("Fuﬂ Fitting Model(.*)"), "Title does not contain FUﬂ FITTING ");
+		Assert.assertEquals(page.getJobCategory(), "Content Creation & Styling", "Job Category");
+		Assert.assertEquals(page.getLocation(), "Berlin", "location");
+		Assert.assertTrue(page.getEntity().matches("(.*).brand-zlabels(.*)"), "should be " + page.getEntity());
+	}
+
+	@Test
+	public static void zalandoTest() {
+		String baseUrl = "https://www.zalando.de/jobs/";
+		driver.get(baseUrl);
+		ZalandoPage page = new ZalandoPage(driver);
+
+		page.inputJobType("Analyst");
+		page.locationDropdown("Berlin");
+		page.clickSearchButton();
+
+		// Adding wait as it takes time to load next page
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".label--results-count")));
+
+		List<WebElement> allJobsList = driver.findElements(By.cssSelector(".cards-container li"));
+
+		Integer jobListCount = allJobsList.size();
+
+		WebElement nextButton = page.hasNext();
+
+		while (nextButton != null) {
+			nextButton.click();
+			jobListCount += driver.findElements(By.cssSelector(".cards-container li")).size();
+			nextButton = page.hasNext();
+		}
+
+		// Asserting total jobs found is equal to number of results displayed
+		Assert.assertEquals(page.getJobResultCount(), String.valueOf(jobListCount - 1));
+
+	}
+
+	@AfterTest
+
+	public void teardown() {
+
+		driver.close();
+		driver.quit();
+	}
+
+}

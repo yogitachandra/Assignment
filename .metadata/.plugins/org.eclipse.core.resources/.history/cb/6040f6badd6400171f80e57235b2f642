@@ -1,0 +1,24 @@
+package com.utils;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DriverFactory {
+
+	public static WebDriver getDriver(String driverType) {
+
+		WebDriver driver = null;
+		switch (driverType) {
+		case "chrome":
+			driver = new ChromeDriver();
+			break;
+		case "chrome":
+			driver = new FireFoxDriver();
+			break;
+		default:
+			break;
+		}
+
+		return driver;
+	}
+}

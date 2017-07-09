@@ -1,0 +1,12 @@
+package com.utils;
+
+public class Constants {
+
+	//ZLABEL constants
+	public static final String BASEURL_ZALABEL = "https://zlabels.com/jobs";
+
+
+
+	//ZALANDO constants
+	public static final String BASEURL_ZALANDO = "";
+}

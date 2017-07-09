@@ -1,0 +1,102 @@
+package test;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pageObjects.ZLabelsPage;
+import pageObjects.ZalandoPage;
+
+@Test
+public class PageObjectTest {
+
+	private static WebDriver driver;
+
+	@BeforeTest
+	public static void setup() {
+		System.setProperty("webdriver.chrome.driver", "lib/chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	}
+
+	// @Test
+	// public static void test1() {
+	// String baseUrl = "https://zlabels.com/jobs";
+	// driver.get(baseUrl);
+	// ZLabelsPage page = new ZLabelsPage(driver);
+	//
+	// page.clickOnJobsLink();
+	// page.inputJobType("Fuﬂ Fitting Model");
+	// page.locationDropdown("Berlin");
+	// page.clickSearchButton();
+	// page.clickFilterJobsButton();
+	// page.selectJobCategory();
+	//
+	// // assertions
+	// Assert.assertTrue(page.getJobTitle().matches("Fuﬂ Fitting Model(.*)"),
+	// "Title does not contain FUﬂ FITTING ");
+	// Assert.assertEquals(page.getJobCategory(), "Content Creation & Styling",
+	// "Job Category");
+	// Assert.assertEquals(page.getLocation(), "Berlin", "location");
+	// Assert.assertTrue(page.getEntity().matches("(.*).brand-zlabels(.*)"),
+	// "should be " + page.getEntity());
+	// }
+
+	@Test
+	public static void test2() {
+		String baseUrl = "https://www.zalando.de/jobs/";
+		driver.get(baseUrl);
+		ZalandoPage page = new ZalandoPage(driver);
+
+		page.inputJobType("Analyst");
+		page.locationDropdown("Berlin");
+		page.clickSearchButton();
+
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".label--results-count")));
+
+		List<WebElement> allJobsList = driver.findElements(By.cssSelector(".cards-container li"));
+
+		Integer jobListCount = allJobsList.size();
+		String totalJobsFound = page.getJobResult();
+
+		
+		while(page.hasNext()){
+			page.hasNext().click();
+			jobListCount += driver.findElements(By.cssSelector(".cards-container li")).size();
+		}
+		
+		if (page.hasNext() == null) {
+			System.out.println("Total jobs found " + jobListCount);
+		} else {
+			Integer finalResult = jobListCount;
+			page.hasNext().click();
+		}
+
+		/*
+		 * page.locationDropdown("Netherlands");
+		 * page.locationDropdown("Helsinki"); page.clickSearchButton();
+		 */
+
+	}
+
+	@AfterTest
+
+	public void teardown() {
+
+		driver.close();
+		driver.quit();
+	}
+
+}

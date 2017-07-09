@@ -9,3 +9,19 @@
 1499584258848	Copy file
 1499584761936	Delete element
 1499585026620	Delete elements
+1499595576919	Delete element
+1499595676572	Delete element
+1499597737310	Delete element
+1499598064541	Delete element
+1499611465405	Copy compilation unit
+1499621240731	Rename local variable 'allpages'
+1499621273745	Rename local variable 'resultListCount'
+1499621353281	Rename local variable 'allJobs'
+1499625764101	Delete element
+1499626635849	Rename package 'pageObjects'
+1499626666962	Rename package 'test'
+1499630536683	Encapsulate field 'driver'
+1499630574776	Encapsulate field 'driverProperty'
+1499630598289	Encapsulate field 'driverPath'
+1499632080116	Delete element
+1499632109894	Rename local variable 'appWebDriver'

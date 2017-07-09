@@ -1,0 +1,28 @@
+package com.utils;
+
+public class Constants {
+	
+	//COMMON
+	public static final String DRIVER_CHROME = "chrome";
+	public static final String DRIVER_CHROME_PROPERTY = "webdriver.chrome.driver";
+	public static final String DRIVER_CHROME_PATH_WINDOWS32 = "lib/chromedriver.exe";
+	public static final String DRIVER_CHROME_PATH_LINUX64 = "lib/chromedriver";
+	
+	public static final String DRIVER_FIREFOX = "firefox";
+	public static final String DRIVER_CHROME_PROPERTY = "webdriver.firefox.driver";
+	public static final String DRIVER_CHROME_PATH_WINDOWS32 = "lib/chromedriver.exe";
+	public static final String DRIVER_CHROME_PATH_LINUX64 = "lib/chromedriver";
+	
+	
+	public static final long TIME = 10;
+
+	//ZLABEL constants
+	public static final String BASEURL_ZALABEL = "https://zlabels.com/jobs";
+
+
+
+	//ZALANDO constants
+	public static final String BASEURL_ZALANDO = "";
+	public static final String DRIVER_FIREFOX_PROPERTY = null;
+
+}

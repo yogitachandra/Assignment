@@ -1,0 +1,17 @@
+package com.utils;
+
+import org.openqa.selenium.WebDriver;
+
+public class AppWebDriver {
+
+	private WebDriver driver;
+	private String driverProperty;
+	private String driverPath;
+	
+	public AppWebDriver(WebDriver driver, String property, String path){
+		this.driver = driver;
+		this.driverProperty = property;
+		this.driverPath = path;
+	}
+	
+}

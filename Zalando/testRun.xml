@@ -1,15 +1,28 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="Main Test Suite" verbose="2">
+<suite name="Test Suite" verbose="2">
 
-    <test name="Test Z-Labels">
-        <!-- <classes>
-        <class name="com.test.TestA"/>
-        </classes> -->
-        <packages>
-        <package name="test"/>
-        </packages>
-    </test>
+   
+    <test name="Test Zalando Job Results" >
+		<classes>
+			<class name="com.test.PageTest">
+				<methods>
+					<include name="zLabelsTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+    <test name="Test Z-Labels Job Results">
+		<classes>
+			<class name="com.test.PageTest">
+				<methods>
+					<include name="zalandoTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+    
     
 </suite>

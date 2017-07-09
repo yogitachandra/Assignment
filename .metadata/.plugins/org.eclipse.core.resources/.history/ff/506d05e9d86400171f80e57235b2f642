@@ -1,0 +1,40 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Test Suite" verbose="2">
+
+    <test name="Test Z-Labels">
+        <!-- <classes>
+        <class name="com.test.TestA"/>
+        </classes> -->
+        <packages>
+        <package name="test"/>
+        </packages>
+    </test>
+    
+    <test name="Test Z-Labels" >
+		<classes>
+			<class name="com.example.logging.LoggingClass">
+				<methods>
+					<include name="methodAddingNumbers" />
+					<include name="dividedByZero" />
+					<include name="methodSkip" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	  <test name="TestNG logs sample" preserve-order="true">
+		<classes>
+			<class name="com.example.logging.LoggingClass">
+				<methods>
+					<include name="methodAddingNumbers" />
+					<include name="dividedByZero" />
+					<include name="methodSkip" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+    
+    
+</suite>
