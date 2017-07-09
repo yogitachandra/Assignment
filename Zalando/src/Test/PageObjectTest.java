@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.Assert;
+import org.testng.TestListenerAdapter;
+import org.testng.TestNG;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -15,6 +17,15 @@ import pageObjects.ZLabelsPage;
 @Test
 public class PageObjectTest {
 
+	public static void main(String[] args)
+	{
+		TestListenerAdapter tla = new TestListenerAdapter();
+		TestNG testng = new TestNG();
+		/*testng.setTestClasses(new Class[] { this.class });
+		testng.addListener(tla);*/
+		testng.run();
+	}
+	
 	private static WebDriver driver;
 
 	@BeforeTest

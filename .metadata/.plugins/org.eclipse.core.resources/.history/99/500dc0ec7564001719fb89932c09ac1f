@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Main Test Suite" verbose="2">
+
+    <test name="Test Z-Labels">
+        <!-- <classes>
+        <class name="com.test.TestA"/>
+        </classes> -->
+        <packages>
+        <package name="test"/>
+        </packages>
+    </test>
+    
