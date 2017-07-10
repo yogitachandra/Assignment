@@ -4,7 +4,7 @@
 <suite name="Test Suite" verbose="2">
 
 		<listeners>
-			<listener class-name="com.utils.TestLogger" />
+			<listener class-name=" " />
 		</listeners>
 
 		<test name="Test Zalando Job Results">

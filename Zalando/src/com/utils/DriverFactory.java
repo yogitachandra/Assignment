@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverFactory {
 
@@ -17,8 +16,6 @@ public class DriverFactory {
 			webDriver = new ChromeDriver();
 			break;
 		case "firefox":
-			DesiredCapabilities capa =DesiredCapabilities.firefox();
-			capa.setBrowserName("firefox");
 			System.setProperty(Constants.DRIVER_FIREFOX_PROPERTY,Constants.DRIVER_FIREFOX_PATH_WINDOWS64);
 			webDriver = new FirefoxDriver();
 			break;

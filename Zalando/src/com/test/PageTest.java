@@ -18,11 +18,22 @@ import com.pageObjects.ZalandoPage;
 import com.utils.Constants;
 import com.utils.DriverFactory;
 
+/**
+ * Coding challenge.
+ * 
+ * @author YogitaChandra
+ *
+ */
+
 @Test
 public class PageTest {
 
 	private static WebDriver driver;
 
+	/**
+	 * 
+	 * Setup driver
+	 */
 	@BeforeTest
 	public static void setup() {
 
@@ -30,6 +41,13 @@ public class PageTest {
 		driver = DriverFactory.getDriver(Constants.DRIVER_CHROME);
 		driver.manage().timeouts().implicitlyWait(Constants.TIME, TimeUnit.SECONDS);
 	}
+
+	/**
+	 * 
+	 * Open Zlables.com/jobs Click on jobs links Type "Fuss fitting model" and
+	 * location "Berlin" Search Click on filter, Select checkbox Verify the
+	 * items in jobs result ( like location ,entity,category )
+	 */
 
 	@Test
 	public static void zLabelsTest() {
@@ -50,6 +68,14 @@ public class PageTest {
 		Assert.assertEquals(page.getLocation(), "Berlin", "location");
 		Assert.assertTrue(page.getEntity().matches("(.*).brand-zlabels(.*)"), "should be " + page.getEntity());
 	}
+
+	/**
+	 * 
+	 * Open Zalando.de Click on jobs links Type "Analyst" and location "Berlin"
+	 * Search 
+	 * Get the total number of jobs found in result 
+	 * Match the total number with number of results
+	 */
 
 	@Test
 	public static void zalandoTest() {
