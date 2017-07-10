@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Test Suite" verbose="2">
+
+   
+    <test name="Test Zalando Job Results" >
+		<classes>
+			<class name="com.test.PageTest">
+				<methods>
+					<include name="zLabelsTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+    <test name="Test Z-Labels Job Results">
+		<classes>
+			<class name="com.test.PageTest">
+				<methods>
+					<include name="zalandoTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+    
+    
+</suite>

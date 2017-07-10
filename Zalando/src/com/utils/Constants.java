@@ -10,7 +10,10 @@ public class Constants {
 	
 	//For running test on firefox
 	public static final String DRIVER_FIREFOX = "firefox";
-	public static final String DRIVER_FIREFOX_PROPERTY = null;
+	public static final String DRIVER_FIREFOX_PROPERTY = "webdriver.firefox.marionette";
+	public static final String DRIVER_FIREFOX_PATH_WINDOWS64 = "lib/geckodriver.exe";
+	public static final String DRIVER_FIREFOX_PATH_LINUX64 = "lib/geckodriver";
+
 	
 	//For running test on ie
 	public static final String DRIVER_IE = "iexplorer";
@@ -30,6 +33,7 @@ public class Constants {
 	public static final String BASEURL_ZALANDO = "https://www.zalando.de/jobs/";
 	public static final String JOB_TYPE_ZALANDO = "Analyst";
 	public static final String JOB_LOCATION_ZALANDO = "Berlin";
+
 
 
 }
